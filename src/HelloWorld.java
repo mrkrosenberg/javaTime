@@ -19,35 +19,19 @@ public class HelloWorld {
 
 	public static void main(String[] args) {
 		
-		getAFile("./somestuff.txt");
+		try {
+			getAFile("./somestuff.txt");
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
 
-	public static void getAFile(String fileName)  {
-		
-		try {
-			FileInputStream file = new FileInputStream(fileName);
-
-		} 
-		catch(FileNotFoundException e) {
-			System.out.println("Sorry can't find that file");
-		}
-		catch(IOException e) {
-			System.out.println("Unknown IO Error");
-		}
-//		catch(ClassNotFoundException e) {
-//			// leave code block blank to ignore an exception
-//		}
-		catch(Exception e) {
-			System.out.println("there was an error");
-		}
-		
-		finally {
-			// always executes, used to clean up code block
-				// close db connection, closes files, end program
-			System.out.println("");
-		}
+	public static void getAFile(String fileName) throws IOException, FileNotFoundException {
+	
+		FileInputStream file = new FileInputStream(fileName);
 		
 	}
 
