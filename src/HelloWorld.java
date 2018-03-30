@@ -1,5 +1,5 @@
 // user input library
-import java.util.*;
+import java.io.*;
 
 // blue print for our program
 public class HelloWorld {
@@ -16,32 +16,41 @@ public class HelloWorld {
 		// InputMismatchException
 		// IOException
 	
-	static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		
-		System.out.println("how old are you?");
-		int age = checkValidAge();
-		
-		if (age != 0) {
-			System.out.println("you are " + age + " years old");
-		}
+		getAFile("./somestuff.txt");
 		
 	}
 	
-	public static int checkValidAge() {
+
+	public static void getAFile(String fileName)  {
 		
 		try {
-			return userInput.nextInt();
+			FileInputStream file = new FileInputStream(fileName);
+
+		} 
+		catch(FileNotFoundException e) {
+			System.out.println("Sorry can't find that file");
+		}
+		catch(IOException e) {
+			System.out.println("Unknown IO Error");
+		}
+//		catch(ClassNotFoundException e) {
+//			// leave code block blank to ignore an exception
+//		}
+		catch(Exception e) {
+			System.out.println("there was an error");
 		}
 		
-		catch (InputMismatchException e) {
-			userInput.next();
-			System.out.println("that isn't a whole number");
-			return 0;
+		finally {
+			// always executes, used to clean up code block
+				// close db connection, closes files, end program
+			System.out.println("");
 		}
 		
 	}
+
 	
 
 		
