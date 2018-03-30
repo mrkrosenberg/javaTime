@@ -1,5 +1,5 @@
 // user input library
-import java.util.Scanner;
+import java.util.*;
 
 // blue print for our program
 public class HelloWorld {
@@ -15,38 +15,37 @@ public class HelloWorld {
 		// IndexOutOfBoundsException
 		// InputMismatchException
 		// IOException
+	
+	static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		
-		divideByZero(2);
+		System.out.println("how old are you?");
+		int age = checkValidAge();
+		
+		if (age != 0) {
+			System.out.println("you are " + age + " years old");
+		}
 		
 	}
 	
-	public static void divideByZero(int a) {
+	public static int checkValidAge() {
 		
 		try {
-			
-			System.out.println(a/0);
-			
+			return userInput.nextInt();
 		}
 		
-		catch (ArithmeticException e) {
-			
-			// prints custom error message
-			System.out.println("Your math sucks!");
-			
-			// prints error in the code
-			System.out.println(e.getMessage());
-			
-			// prints exception name and error message
-			System.out.println(e.toString());
-			
-			// prints specific error
-			e.printStackTrace();
-			
+		catch (InputMismatchException e) {
+			userInput.next();
+			System.out.println("that isn't a whole number");
+			return 0;
 		}
 		
 	}
+	
+
+		
+
 	
 	
 }
