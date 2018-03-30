@@ -9,20 +9,12 @@ public class HelloWorld {
 	
 	public static void main(String[] args) {
 		
-		System.out.print("Your favorite number: ");
+		int randomNumber = (int) (Math.random() * 50);
 		
-		if (userInput.hasNextInt()) {
-			int numEntered = userInput.nextInt();
-			System.out.println("you entered " + numEntered);
-			
-			int numbEnteredTimes2 = numEntered + numEntered;
-			System.out.println("your number X 2 = " + numbEnteredTimes2);
-
-			
-			
-		} else {
-			System.out.println("enter an integer next time");
+		if (randomNumber < 25) {
+			System.out.println("The random number is less than 25");
 		}
+		System.out.println("The random number is " + randomNumber);
 			
 	}
 	
