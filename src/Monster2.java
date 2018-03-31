@@ -1,5 +1,40 @@
+import java.util.Arrays;
+
 // a file can only contain one public class, but can contain many classes
-public class Monster {
+public class Monster2 {
+	
+	static char[][] battleBoard = new char[10][10];
+	
+	public static void buildBattleBoard() {
+		
+		// defines each box
+		for(char[] row : battleBoard) {
+			// fills each box with '*'
+			Arrays.fill(row,  '*');
+			
+		}
+	}
+	
+	public static void redrawBoard() {
+		
+		int k = 1;
+		while(k <= 30) {
+			System.out.print('-'); k++;
+		}
+		System.out.println();
+		
+		for(int i = 0; i < battleBoard.length; i++) {
+			
+			for (int j = 0; j < battleBoard[i].length; j++) {
+				System.out.print("|" + battleBoard[i][j] + "|");
+			}
+			System.out.println();
+		}
+		while(k <= 30) {
+			System.out.print('-'); k++;
+		}
+		
+	}
 	
 	// class variables are also called fields
 	// constants are declared with final
@@ -50,20 +85,15 @@ public class Monster {
 	}
 	
 	// constructor function - must have same name as main class
-	public Monster(int health, int attack, int movement) {
+	public Monster2(int health, int attack, int movement) {
 		this.health = health;
 		this.attack = attack;
 		this.movement = movement;
 	}
 	
 	// creates an overloaded constructor
-	public Monster() {
+	public Monster2() {
 		// blank constructors are only executed if no other constructor is defined
 	}
 	
 }
-
-
-
-
-
